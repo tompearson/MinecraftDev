@@ -30,4 +30,6 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', 'gradle/**', 'gradle.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
       - run: ./gradlew build --no-daemon --stacktrace
